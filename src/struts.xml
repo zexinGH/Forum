@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="main" extends="struts-default" namespace="/">
+	
+		<interceptors>
+			<interceptor name="loginInterceptor"
+			class="com.helloweenvsfei.forum.struts.interceptor.LoginInterceptor">
+			</interceptor>
+			<interceptor name="pathInterceptor" 
+			class="com.helloweenvsfei.forum.struts.interceptor.PathInterceptor">
+			</interceptor>		
+
+		</interceptors>
+		
+		<global-results>
+			<result name="success">/form/success.jsp</result>
+			<result name="error">/form/exception.jsp</result>
+			<result name="login">/form/person/login.jsp</result>
+			<result name="register">/form/person/addPerson.jsp</result>
+			<result name="category">/form/category/listCategory.jsp</result>		
+		</global-results>
+		
+		<action name="person_*" class="personAction" method="{1}">
+			<result name="list">/form/person/viewPerson.jsp</result>
+			<result name="prePage">${prePage}</result>
+						
+		</action>
+		
+		<action name="category_*" class="categoryAction" method="{1}">
+			<interceptor-ref name="loginInterceptor">
+				<param name="includeMethods">add</param>
+			</interceptor-ref>
+			<interceptor-ref name="pathInterceptor"></interceptor-ref>	
+			<result name="list">/form/category/listCategory.jsp</result>				
+		</action>
+	</package>
+	
+</struts>

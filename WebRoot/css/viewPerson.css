@@ -1,0 +1,98 @@
+.user-navbar .leftSidebar{
+	width: 280px;
+	height: 600px;
+	float: left;
+	border: 1px solid rgb(235,235,235);
+	border-radius: 5px;
+	padding: 20px 20px 150px 20px;
+    position: absolute;
+    background-color: rgb(230,230,250); 
+}
+.user-navbar .sidebar .username-navbar{
+	border-bottom: 1px solid rgb(235,235,235);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+.user-navbar .sidebar #crop-avatar .avatar-view{
+	border-radius: 50%;
+	margin: 0 65px 20px 65px;
+	height: 110px;
+	width: 110px;
+	
+}
+.user-navbar .sidebar #crop-avatar img{
+	height: 100%;
+	width: 100%;
+}
+.user-navbar .sidebar .username-navbar span{
+	font-size: 20px;
+}
+#myTab li{
+	margin-bottom: 10px;
+}
+#myTab li span{
+	margin-right: 5px;
+}
+
+
+#myTabContent{
+	width:770px;
+	height: auto;
+	min-height: 600px;
+    border-radius: 5px;
+    margin-left: 290px;
+	position: absolute;
+	border: 1px solid rgb(235,235,235);
+}
+#myTabContent .infoTitle{
+	padding: 10px 50px 30px 50px;
+	border-bottom: 1px solid rgb(235,235,235);
+}
+#myTabContent .account-info-list .account-block{
+	float: left;
+	padding: 30px 50px 20px 50px;
+	border-bottom: 1px solid rgb(235,235,235);
+}
+#myTabContent .account-info-list .account-block .account-list-title{
+	float: left;
+	width: 340px;
+}
+
+#myTabContent .account-info-list .account-block .account-list-info{
+	font-size: 16px;
+	margin-left:30px;
+	float: left;
+	width: 250px;
+}
+#myTabContent .account-info-list .account-block .password-info,.email-info{
+	float: left;
+	width: 200px;
+}
+#myTabContent .account-info-list .account-block .is-edit{
+	margin-left: 10px;
+	float: left;
+}
+#myTabContent .account-info-list .account-block .edit-box{
+	display: none;
+}
+
+#myTabContent .account-info-list .privilege{
+	margin: 10% 10% 0 10%;
+}
+
+#myTabContent .account-info-list a{
+	text-decoration:none;
+}
+#myTabContent .account-info-list .privilege img{
+	height: 50px;
+}
+#myTabContent .account-info-list .person-info{
+	margin: 10% 20% 0 20%;
+}
+#myTabContent .account-info-list .person-info img{
+	margin-top: -10px;
+	width: 50px;
+	height: 50px;
+}
+#myTabContent .account-info-list .person-info .col-sm-8{;
+}

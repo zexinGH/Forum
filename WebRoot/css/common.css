@@ -1,0 +1,74 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+#header nav .navbar-header .navbar-brand{
+	padding-top: 6px;
+}
+
+#header .navbar-brand img{
+	widows: auto;
+	height:40px;
+}
+#header .dropdown img{
+	width:30px; 
+	height:30px;
+}
+#main{
+	margin-top: 50px;
+	min-height: 900px;
+}
+#main .container .table{
+	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.25); 
+     box-shadow: 0 2px 5px rgba(0,0,0,0.25); 
+}
+#main .container .position{
+	padding:10px 0 10px 0;
+}
+#main .container-fluid .position{
+	padding:20px 0 20px 80px;
+	margin-bottom:20px;
+	border-bottom: 1px solid rgb(235,235,235);
+}
+#main .container-fluid .position .position-last,.container .position .position-last{
+	color: rgb(58,183,234);
+}
+#main .container-fluid .position a,.container .position a{
+	text-decoration:none;
+	color: rgb(81,93,122);
+}
+#main .table{
+	background-color: rgb(255,255,255);
+}
+#main .table-striped .table-title .title{
+	margin-left:60px;
+}
+#main .table-striped .table-content .content{
+	margin-top: 50px;
+}
+#main .table-striped .table-content #mistakeInfo{
+	color: rgb(198,49,49);
+}
+
+
+#main .container table .title{
+	font-size:18px;
+}
+#main .container table .board .boardtitle{
+	font-size:15px;
+}
+#main .container table .title,.board .boardtitle{
+	font-weight: bold;
+}
+#main .container table .board td dt{
+	height: 64px; 
+	width: 70px;
+}
+#main .container table .board td dd{
+	margin-left:0;
+}
+#footer{
+	margin-bottom: 1%;
+}
+

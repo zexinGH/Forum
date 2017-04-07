@@ -1,0 +1,48 @@
+body{
+	background-color: rgb(241,245,248);
+}
+
+#main .listThread table tr .firstColumn{
+	padding:20px;
+}
+#main .listThread .position{
+	float: left;
+}
+#main .listThread #publishBtn{
+	
+	float: right;
+}
+#main .listThread #boardTitle{
+	line-height: 20px;
+	max-width: 500px;
+}
+#main .listThread #boardTitle #total span{
+	color: rgb(255,0,80);
+}
+#main table .thread{
+	border-bottom: 1px solid rgb(211,211,211);
+	height: 90px;
+}
+
+#main table .thread img{
+	width: 50px;
+	height: 50px;
+}
+#main table .thread .avatarbox{
+	width: 60px;
+}
+#main table .thread .content{
+	height: 80px;
+	width: 1000px;
+	padding-top: 20px;
+}
+#main table .thread .thread-badge span{
+	margin-top: 25px;
+}
+#main table .thread .content .thread-title{
+	color: rgb(59,59,59);
+	font-size: 16px;
+}
+#main table .thread .content tr{
+	height: 28px;
+}

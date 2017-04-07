@@ -1,0 +1,13 @@
+body{
+	background-color: rgb(241,245,248);
+#main{
+	margin-top: 80px;
+}
+#main .container table a{
+	color: rgb(0,0,0);
+}
+#main .container .info_box i{
+	margin-left: 2px;
+	margin-right: 2px;	
+}
+

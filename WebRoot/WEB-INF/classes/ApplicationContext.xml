@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+	<!-- 开启注解扫描    到包里面扫描类、方法、属性上面是否有注解  -->
+	<context:component-scan base-package="com.helloweenvsfei.forum.struts">
+	</context:component-scan>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql:///newforum?charaterEncoding=UTF-8" />
+		<property name="username" value="root" />
+		<property name="password" value="123" />
+	</bean>
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		destroy-method="destroy">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="annotatedClasses">
+			<list>
+				<value>com.helloweenvsfei.forum.bean.Category</value>
+				<value>com.helloweenvsfei.forum.bean.Board</value>
+				<value>com.helloweenvsfei.forum.bean.Thread</value>
+				<value>com.helloweenvsfei.forum.bean.Person</value>
+				<value>com.helloweenvsfei.forum.bean.Reply</value>
+			</list>			
+		</property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />	
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- dao层实例  -->
+	<bean id="dao" class="com.helloweenvsfei.forum.dao.impl.DaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="personService" class="com.helloweenvsfei.forum.service.impl.PersonServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean id="categoryService" class="com.helloweenvsfei.forum.service.impl.CategoryServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean id="threadService" class="com.helloweenvsfei.forum.service.impl.ThreadServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean id="boardService" class="com.helloweenvsfei.forum.service.impl.BoardServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean id="replyService" class="com.helloweenvsfei.forum.service.impl.ReplyServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	
+	
+	
+	<bean id="categoryAction" class="com.helloweenvsfei.forum.struts.action.CategoryAction" scope="prototype">  
+	</bean>
+	<bean id="personAction" class="com.helloweenvsfei.forum.struts.action.PersonAction" scope="prototype">  
+	</bean>
+	<bean id="threadAction" class="com.helloweenvsfei.forum.struts.action.ThreadAction" scope="prototype">
+	</bean>
+	<bean id="boardAction" class="com.helloweenvsfei.forum.struts.action.BoardAction" scope="prototype">
+	</bean>
+	<bean id="replyAction" class="com.helloweenvsfei.forum.struts.action.ReplyAction" scope="prototype">
+	</bean>
+	
+</beans>

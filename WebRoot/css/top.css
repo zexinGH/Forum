@@ -1,0 +1,35 @@
+header{
+	margin-bottom: 100px;
+}
+
+header nav .navbar-header .navbar-brand{
+	padding: 6px 0px 6px 10px;
+}
+header nav .navbar-header .navbar-text{
+	margin: 15px 0 15px 0;
+}
+header img{
+	width: 80%;
+	height:40px;
+}
+#main table{
+	margin-bottom:10px; 
+}
+
+#main a{
+	color: rgb(0,0,0);
+}
+footer{	
+	margin-top: 50px;
+}
+#Login #loginForm .login_name,.login_password{
+	margin: 10px 0 10px 0;
+}
+#mistakeInfo span{
+	font-family: "微软雅黑";
+	font-size: 10px;
+	color: rgb(250,0,0);
+	line-height: 34px;
+}
+
+
