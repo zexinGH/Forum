@@ -46,4 +46,10 @@ public class ReplyServiceImpl<T extends Reply> extends ServiceImpl<T>
 		dao.save(reply);
 	}
 
+	@Override
+	public T findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

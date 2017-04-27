@@ -32,4 +32,10 @@ public class ThreadServiceImpl<T extends Thread> extends ServiceImpl<T>
 				
 	}
 
+	@Override
+	public T findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

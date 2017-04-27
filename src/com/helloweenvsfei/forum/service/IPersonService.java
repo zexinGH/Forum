@@ -7,8 +7,6 @@ public interface IPersonService<T extends Person> extends IService<T> {
 	public T findPersonByAccount(String account);
 	/**根据账号和密码查找用户	 */
 	public T getPerson(String account,String password);
-	/**根据昵称查找用户	*/
-	public T findPerosnByName(String name);
 	/**根据邮箱查找用户        */
 	public T findPersonByEmail(String email);
 }

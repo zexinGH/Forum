@@ -42,7 +42,7 @@ public class PersonServiceImpl<T extends Person> extends ServiceImpl<T>
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T findPerosnByName(String name) {
+	public T findByName(String name) {
 		List<T> person = this
 				.dao
 				.createQuery(
@@ -74,5 +74,6 @@ public class PersonServiceImpl<T extends Person> extends ServiceImpl<T>
 		person.setPassword(MD5Util.calc(person.getPassword()));
 		this.dao.create(person);
 	}
+
 
 }

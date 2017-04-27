@@ -1,20 +1,13 @@
 package com.helloweenvsfei.forum.struts.action;
 
 import java.util.Date;
-import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts2.interceptor.ServletRequestAware;
-import org.apache.struts2.interceptor.SessionAware;
-
 import com.helloweenvsfei.forum.bean.Person;
 import com.helloweenvsfei.forum.service.IPersonService;
 
-public class PersonAction extends ForumAction implements SessionAware,ServletRequestAware{
+public class PersonAction extends ForumAction{
 
-	private static final long serialVersionUID = 1L;
 	public static final String REGISTER = "register";
 	public static final String LOGOUT = "logout";
 	@Resource(name="personService")
@@ -22,46 +15,6 @@ public class PersonAction extends ForumAction implements SessionAware,ServletReq
 	private Person person;	
 	private String confirmPassword;
 	
-	private HttpServletRequest request;
-	private Map<String, Object> session;
-	
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
-
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
-
-	public IPersonService<Person> getPersonService() {
-		return personService;
-	}
-	public void setPersonService(IPersonService<Person> personService) {
-		this.personService = personService;
-	}
-	
-	
-	@Override
-	public void setSession(Map<String, Object> session) {
-		this.session = session;		
-	}
-	
-	
-	
-	@Override
-	public void setServletRequest(HttpServletRequest request) {
-		this.request = request;
-		
-	}
-
 	public String initRegister(){
 		setTitle("用户注册");
 		return REGISTER;
@@ -108,9 +61,9 @@ public class PersonAction extends ForumAction implements SessionAware,ServletReq
 				loginPerson.setIpLastActived(request.getRemoteAddr());
 				loginPerson.setDateLastActived(new Date());
 				personService.update(loginPerson);
-				Object prePage = session.get("prePage");
+				request.setAttribute("person", loginPerson);
 				session.put("person", loginPerson);
-				return "prePage";
+				return "category";
 			} catch (Exception e) {
 				request.setAttribute("message",e.getMessage());
 				return "error";
@@ -126,12 +79,13 @@ public class PersonAction extends ForumAction implements SessionAware,ServletReq
 
 	@Override
 	public String list() {
-		if(session.get("person") == null){
+		Person person = (Person) request.getAttribute("person");
+		if(person == null){
 			request.setAttribute("loginMessage", "请先登录！");
 			return LOGIN;
 		}
-		setTitle("用户中心");		
-		Person viewPerson = personService.find(Person.class, person.getId());
+		setTitle("用户中心");
+		Person viewPerson = personService.find(Person.class,person.getId());
 		if(viewPerson == null){
 			request.setAttribute("viewmessage","发生了错误！用户不存在！");
 			return "error";
@@ -158,7 +112,29 @@ public class PersonAction extends ForumAction implements SessionAware,ServletReq
 		request.setAttribute("person", infoPerson);
 		return "list";
 	}
+	
 
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
 
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public IPersonService<Person> getPersonService() {
+		return personService;
+	}
+	public void setPersonService(IPersonService<Person> personService) {
+		this.personService = personService;
+	}
 	
 }

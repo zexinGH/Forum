@@ -268,12 +268,12 @@
 							<ul class="media-list">
 								<li class="media">
 									<div class="media-left">
-										<a href=""> <img class="media-object"
-											src="img/add-category.png">
+										<a href="${pageContext.request.contextPath }/category_initAdd.action?person.id=${person.id}"> 
+											<img class="media-object" src="img/add-category.png">
 										</a>
 									</div>
 									<div class="media-body">
-										<a href="${pageContext.request.contextPath }">
+										<a href="${pageContext.request.contextPath }/category_initAdd.action?person.id=${person.id}">
 										<h4 class="media-heading">添加分类</h4></a> <span
 											class="text-muted small"> 为论坛开辟新的交流领域。 </span>
 									</div>

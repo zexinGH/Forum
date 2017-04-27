@@ -5,7 +5,9 @@ import java.util.List;
 
 public interface IService<T> {
 	public T find(Class<T> clazz, int id); 	// 根据id查找实体
-
+	
+	public T findByName(String name);
+	
 	public void create(T baseBean); 		//创建实体
 
 	public void save(T baseBean); 			//保存实体

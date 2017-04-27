@@ -35,7 +35,6 @@
 				<td>
 					<div class="content">
 						<s:form class="form-horizontal" action="person_login">
-							<s:hidden name="action" value="login"/>
 							<div class="form-group">
 								<label for="account"
 									class="col-sm-offset-2 col-sm-2 control-label">用户名</label>

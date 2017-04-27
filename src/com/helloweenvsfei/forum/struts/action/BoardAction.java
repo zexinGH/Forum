@@ -1,18 +1,6 @@
 package com.helloweenvsfei.forum.struts.action;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
-
-
-
-
-import com.helloweenvsfei.forum.bean.BaseBean;
 import com.helloweenvsfei.forum.bean.Board;
 import com.helloweenvsfei.forum.bean.Category;
 import com.helloweenvsfei.forum.bean.Person;

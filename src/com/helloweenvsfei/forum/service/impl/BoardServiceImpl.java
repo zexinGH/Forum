@@ -15,5 +15,11 @@ public class BoardServiceImpl<T extends Board> extends ServiceImpl<T> implements
 		dao.create(board);
 	}
 
+	@Override
+	public T findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

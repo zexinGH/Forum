@@ -63,7 +63,6 @@
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
 	<!-- dao层实例  -->
 	<bean id="dao" class="com.helloweenvsfei.forum.dao.impl.DaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate"></property>

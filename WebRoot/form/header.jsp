@@ -1,9 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ page language="java" import="org.appache.struts2.components.Include" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-
-<%@  include file="" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -68,7 +65,7 @@
 						</button>
 					</form>
 					<s:if test="%{#session.person != null}">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown"><a class="dropdown-toggle"
 							id="dropdownMenu1" data-toggle="dropdown">${person.account}<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu"
@@ -90,7 +87,7 @@
 						<li>
 							<p class="navbar-text">您尚未登录</p>
 						</li>
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown"><a class="dropdown-toggle"
 							id="dropdownMenu1" data-toggle="dropdown">请选择<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu"
